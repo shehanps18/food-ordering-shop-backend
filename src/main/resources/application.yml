@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/foodShop_db
+    username: root
+    password: Jay105
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
