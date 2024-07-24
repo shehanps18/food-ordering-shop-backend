@@ -1,10 +1,11 @@
 package edu.example.service;
 
+import edu.example.model.UserEntity;
 import org.springframework.security.core.userdetails.User;
 
 public interface UserService {
-    public User findUserByJwtToken(String jwt) throws Exception;
+    public UserEntity findUserByJwtToken(String jwt) throws Exception;
 
-    public User findUserByEmail(String email) throws Exception;
+    public UserEntity findUserByEmail(String email) throws Exception;
 
 }
