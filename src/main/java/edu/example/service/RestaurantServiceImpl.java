@@ -31,6 +31,7 @@ public class RestaurantServiceImpl implements RestaurantService{
     @Override
     public Restaurant createRestaurant(CreateRestaurantRequest req, UserEntity user) {
         Address address= addressRepository.save(req.getAddress());
+        System.out.println("UserEntity: " + user);
 
         Restaurant restaurant = new Restaurant();
         restaurant.setAddress(address);
@@ -103,10 +104,20 @@ public class RestaurantServiceImpl implements RestaurantService{
         dto.setTitle(restaurant.getName());
         dto.setId(restaurantId);
 
-        if (user.getFavourites().contains(dto)){
-            user.getFavourites().remove(dto);
+        boolean isFavorites = false;
+        List<RestaurantDto> favorites = user.getFavourites();
+        for (RestaurantDto favourite: favorites){
+            if (favourite.getId().equals(restaurantId)){
+                isFavorites=true;
+                break;
+            }
         }
-        else user.getFavourites().add(dto);
+        if (isFavorites){
+            favorites.removeIf(favorite->favorite.getId().equals(restaurantId));
+
+        }else {
+            favorites.add(dto);
+        }
         userRepository.save(user);
         return dto;
     }

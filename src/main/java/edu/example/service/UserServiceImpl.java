@@ -31,6 +31,6 @@ public class UserServiceImpl implements UserService{
             throw new Exception("user not found");
         }
 
-        return null;
+        return user;
     }
 }
