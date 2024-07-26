@@ -56,7 +56,7 @@ public class IngredientServiceImpl implements IngredientsService {
         item.setCategory(category);
 
         IngredientsItem ingredient= ingredientItemRepository.save(item);
-        category.getIngredients().add(ingredient)
+        category.getIngredients().add(ingredient);
         return ingredient;
     }
 
