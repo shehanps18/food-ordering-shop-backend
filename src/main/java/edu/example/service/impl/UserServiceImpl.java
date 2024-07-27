@@ -1,14 +1,14 @@
-package edu.example.service;
+package edu.example.service.impl;
 
 import edu.example.config.JwtProvider;
 import edu.example.model.UserEntity;
 import edu.example.repository.UserRepository;
+import edu.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;

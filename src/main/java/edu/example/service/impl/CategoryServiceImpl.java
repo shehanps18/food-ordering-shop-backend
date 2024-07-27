@@ -1,8 +1,10 @@
-package edu.example.service;
+package edu.example.service.impl;
 
 import edu.example.model.Category;
 import edu.example.model.Restaurant;
 import edu.example.repository.CategoryRepository;
+import edu.example.service.CategoryService;
+import edu.example.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private RestaurantService restaurantService;

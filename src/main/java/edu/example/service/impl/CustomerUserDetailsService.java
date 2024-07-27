@@ -1,4 +1,4 @@
-package edu.example.service;
+package edu.example.service.impl;
 
 import edu.example.model.USER_ROLE;
 import edu.example.model.UserEntity;

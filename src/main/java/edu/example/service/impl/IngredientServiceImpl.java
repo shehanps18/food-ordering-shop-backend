@@ -1,10 +1,12 @@
-package edu.example.service;
+package edu.example.service.impl;
 
 import edu.example.model.IngredientCategory;
 import edu.example.model.IngredientsItem;
 import edu.example.model.Restaurant;
 import edu.example.repository.IngredientCategoryRepository;
 import edu.example.repository.IngredientItemRepository;
+import edu.example.service.IngredientsService;
+import edu.example.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

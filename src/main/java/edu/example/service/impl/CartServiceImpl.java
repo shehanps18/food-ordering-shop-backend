@@ -1,4 +1,4 @@
-package edu.example.service;
+package edu.example.service.impl;
 
 import edu.example.model.Cart;
 import edu.example.model.CartItem;
@@ -6,15 +6,17 @@ import edu.example.model.Food;
 import edu.example.model.UserEntity;
 import edu.example.repository.CartItemRepository;
 import edu.example.repository.CartRepository;
-import edu.example.repository.FoodRepository;
 import edu.example.request.AddCartItemRequest;
+import edu.example.service.CartService;
+import edu.example.service.FoodService;
+import edu.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class CartServiceImpl implements CartService{
+public class CartServiceImpl implements CartService {
 
     @Autowired
     private CartRepository cartRepository;
@@ -100,15 +102,17 @@ public class CartServiceImpl implements CartService{
     }
 
     @Override
-    public Cart findCartByUserId(String jwt) throws Exception {
-        UserEntity user=userService.findUserByJwtToken(jwt);
-        return cartRepository.findByCustomerId(user.getId());
+    public Cart findCartByUserId(Long userId) throws Exception {
+//        UserEntity user=userService.findUserByJwtToken(jwt);
+        Cart cart= cartRepository.findByCustomerId(userId);
+        cart.setTotal(calculateCartTotal(cart));
+        return cart;
     }
 
     @Override
     public Cart clearCart(String jwt) throws Exception {
         UserEntity user= userService.findUserByJwtToken(jwt);
-        Cart cart = findCartByUserId(jwt);
+        Cart cart = findCartByUserId(user.getId());
         cart.getItem().clear();
 
         return cartRepository.save(cart);

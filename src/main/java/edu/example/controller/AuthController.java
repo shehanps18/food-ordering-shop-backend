@@ -8,7 +8,7 @@ import edu.example.repository.CartRepository;
 import edu.example.repository.UserRepository;
 import edu.example.request.LoginRequest;
 import edu.example.response.AuthResponse;
-import edu.example.service.CustomerUserDetailsService;
+import edu.example.service.impl.CustomerUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

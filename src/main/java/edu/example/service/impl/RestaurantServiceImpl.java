@@ -1,4 +1,4 @@
-package edu.example.service;
+package edu.example.service.impl;
 
 import edu.example.dto.RestaurantDto;
 import edu.example.model.Address;
@@ -8,8 +8,8 @@ import edu.example.repository.AddressRepository;
 import edu.example.repository.RestaurantRepository;
 import edu.example.repository.UserRepository;
 import edu.example.request.CreateRestaurantRequest;
+import edu.example.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RestaurantServiceImpl implements RestaurantService{
+public class RestaurantServiceImpl implements RestaurantService {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
