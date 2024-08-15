@@ -8,14 +8,28 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 @Service
 
 public class JwtProvider {
     private SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
+
+    /*public String generateToken(String name) {
+        Map<String, Object> claims = new HashMap<>();
+        return Jwts.builder()
+                .claims()
+                .add(claims)
+                .subject(name)
+
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 30))
+                .and()
+                .signWith(key)
+                .compact();
+
+
+    }*/
 
     public String generateToken(Authentication auth){
         Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
